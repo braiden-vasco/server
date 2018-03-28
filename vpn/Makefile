@@ -10,5 +10,5 @@ install-config: openvpn.conf
 	install -o root -g root -m 644 $< /etc/openvpn/openvpn.conf
 
 install-restart:
-	systemctl daemon-loader
+	systemctl daemon-reload
 	systemctl restart openvpn.service
