@@ -17,4 +17,4 @@ install-restore-ipv4: rules.v4
 	cat $< | iptables-restore
 
 install-restore-ipv6: rules.v6
-	cat $< | iptables-restore
+	cat $< | ip6tables-restore
