@@ -1,7 +1,7 @@
 install: install-package install-config install-restore
 
 install-package:
-	apt-get install iptables-persistent
+	apt-get install --yes iptables-persistent
 
 install-config: install-config-ipv4 install-config-ipv6
 

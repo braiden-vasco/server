@@ -1,7 +1,7 @@
 install: install-package install-alternatives install-vimrc
 
 install-package:
-	apt-get install vim
+	apt-get install --yes vim
 
 install-alternatives:
 	update-alternatives --set editor /usr/bin/vim.basic

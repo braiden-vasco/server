@@ -1,4 +1,4 @@
-install: install-apt install-hosts install-iptables install-vim install-emercoin install-namecoin
+install: install-apt install-hosts install-iptables install-tools install-vim install-emercoin install-namecoin
 
 install-apt:
 	make -C apt install
@@ -8,6 +8,9 @@ install-hosts:
 
 install-iptables:
 	make -C iptables install
+
+install-tools:
+	apt-get install --yes bash-completion colordiff curl less
 
 install-vim:
 	make -C vim install
