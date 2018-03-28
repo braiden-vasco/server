@@ -1,4 +1,7 @@
-install: install-emercoin install-namecoin
+install: install-apt install-emercoin install-namecoin
+
+install-apt:
+	make -C apt install
 
 install-emercoin:
 	make -C emercoin install
