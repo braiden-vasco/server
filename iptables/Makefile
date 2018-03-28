@@ -5,7 +5,7 @@ install-package:
 
 install-config: install-config-ipv4 install-config-ipv6
 
-instal-config-ipv4: rules.v4
+install-config-ipv4: rules.v4
 	install -o root -g root -m 644 $< /etc/iptables/$<
 
 install-config-ipv6: rules.v6
