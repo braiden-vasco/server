@@ -1,0 +1,18 @@
+[Unit]
+Description=Emercoin
+After=network.target
+
+[Service]
+User=emercoin
+Group=emercoin
+
+Type=simple
+ExecStart=/usr/local/bin/emercoind -conf=/etc/emercoin/emercoin.conf -datadir=/var/lib/emercoin
+
+Restart=always
+TimeoutStartSec=2s
+TimeoutStopSec=60s
+
+[Install]
+WantedBy=multi-user.target
+Alias=emercoin.service

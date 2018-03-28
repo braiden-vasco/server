@@ -5,9 +5,9 @@ NAMECOIN_SHA256 = '294b1106001d6ea2b9d9ee6a655021ef207a24e8f1dec8efd5899728b3849
 
 install: install-emercoin install-namecoin
 
-install-emercoin: install-emercoin-user install-emercoin-config install-emercoin-datadir install-emercoin-bins
+install-emercoin: install-emercoin-user install-emercoin-config install-emercoin-service install-emercoin-datadir install-emercoin-bins
 
-install-namecoin: install-namecoin-user install-namecoin-config install-namecoin-datadir install-namecoin-bins
+install-namecoin: install-namecoin-user install-namecoin-config install-namecoin-service install-namecoin-datadir install-namecoin-bins
 
 install-emercoin-user:
 	adduser --system --group --no-create-home emercoin
@@ -22,6 +22,12 @@ install-emercoin-config:
 install-namecoin-config:
 	install -o root -g root -m 755 -d /etc/namecoin
 	install -o root -g root -m 644 namecoin.conf /etc/namecoin
+
+install-emercoin-service:
+	install -o root -g root -m 644 emercoin.service /etc/systemd/system
+
+install-namecoin-service:
+	install -o root -g root -m 644 namecoin.service /etc/systemd/system
 
 install-emercoin-datadir: install-emercoin-user
 	install -o emercoin -g emercoin -m 755 -d /var/lib/emercoin
