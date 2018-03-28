@@ -15,19 +15,19 @@ install-emercoin-user:
 install-namecoin-user:
 	adduser --system --group --no-create-home namecoin
 
-install-emercoin-config:
+install-emercoin-config: emercoin.conf
 	install -o root -g root -m 755 -d /etc/emercoin
-	install -o root -g root -m 644 emercoin.conf /etc/emercoin
+	install -o root -g root -m 644 $< /etc/emercoin
 
-install-namecoin-config:
+install-namecoin-config: namecoin.conf
 	install -o root -g root -m 755 -d /etc/namecoin
-	install -o root -g root -m 644 namecoin.conf /etc/namecoin
+	install -o root -g root -m 644 $< /etc/namecoin
 
-install-emercoin-service:
-	install -o root -g root -m 644 emercoin.service /etc/systemd/system
+install-emercoin-service: emercoin.service
+	install -o root -g root -m 644 $< /etc/systemd/system
 
-install-namecoin-service:
-	install -o root -g root -m 644 namecoin.service /etc/systemd/system
+install-namecoin-service: namecoin.service
+	install -o root -g root -m 644 $< /etc/systemd/system
 
 install-emercoin-datadir: install-emercoin-user
 	install -o emercoin -g emercoin -m 755 -d /var/lib/emercoin
