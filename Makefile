@@ -19,7 +19,7 @@ install-vim:
 	make -C vim install
 
 install-vpn:
-	make -C vpm install
+	make -C vpn install
 
 install-emercoin:
 	make -C emercoin install
