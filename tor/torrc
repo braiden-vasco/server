@@ -129,7 +129,7 @@ Nickname braidenvasco
 ## is per month)
 #AccountingStart month 3 15:00
 
-AccountingMax 1024 GBytes
+AccountingMax 4096 GBytes
 AccountingStart month 1 00:00
 
 ## Administrative contact information for this relay or bridge. This line
