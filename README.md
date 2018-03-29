@@ -34,4 +34,6 @@ Configuration
 Useful commands
 ---------------
 
+To disable user password: `sudo passwd -d <username>`
+
 To see what listens on network ports: `sudo ss -lnp`

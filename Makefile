@@ -1,4 +1,4 @@
-install: install-apt install-system install-iptables install-sudo install-ssh install-tools install-vim install-tor install-vpn install-emercoin install-namecoin install-dns install-www
+install: install-apt install-system install-iptables install-sudo install-ssh install-user install-tools install-vim install-tor install-vpn install-emercoin install-namecoin install-dns install-www
 
 install-apt:
 	make -C apt install
@@ -14,6 +14,9 @@ install-sudo:
 
 install-ssh:
 	make -C ssh install
+
+install-user:
+	make -C user install
 
 install-tools:
 	apt-get install --yes bash-completion colordiff curl less
