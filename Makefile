@@ -1,4 +1,4 @@
-install: install-apt install-hosts install-iptables install-ssh install-tools install-vim install-vpn install-emercoin install-namecoin
+install: install-apt install-hosts install-iptables install-ssh install-tools install-vim install-vpn install-emercoin install-namecoin install-www
 
 install-apt:
 	make -C apt install
@@ -26,3 +26,6 @@ install-emercoin:
 
 install-namecoin:
 	make -C namecoin install
+
+install-www:
+	make -C www install
