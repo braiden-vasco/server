@@ -12,5 +12,5 @@ install-ssh-keys: authorized_keys
 install-coin-configs:
 	install -o braiden-vasco -g braiden-vasco -m 755 -d /home/braiden-vasco/.emercoin
 	install -o braiden-vasco -g braiden-vasco -m 755 -d /home/braiden-vasco/.namecoin
-	ln -s /etc/emercoin/emercoin.conf /home/braiden-vasco/.emercoin/emercoin.conf
-	ln -s /etc/namecoin/namecoin.conf /home/braiden-vasco/.namecoin/namecoin.conf
+	ln -sf /etc/emercoin/emercoin.conf /home/braiden-vasco/.emercoin/emercoin.conf
+	ln -sf /etc/namecoin/namecoin.conf /home/braiden-vasco/.namecoin/namecoin.conf
