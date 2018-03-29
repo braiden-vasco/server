@@ -40,4 +40,4 @@ To see what listens on network ports: `sudo ss -lnp`
 
 Disk usage: `sudo du -sh /`
 
-FS disk usage: `sudo du -sh /`
+FS disk usage: `sudo df -h /`
