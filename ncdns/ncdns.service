@@ -1,0 +1,18 @@
+[Unit]
+Description=NCDNS
+After=network.target
+
+[Service]
+User=ncdns
+Group=ncdns
+
+Type=simple
+ExecStart=/usr/local/bin/ncdns -conf /etc/ncdns/ncdns.conf
+
+Restart=always
+TimeoutStartSec=2s
+TimeoutStopSec=60s
+
+[Install]
+WantedBy=multi-user.target
+Alias=ncdns.service
