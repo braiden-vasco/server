@@ -1,4 +1,4 @@
-install: install-user install-package install-config install-restart
+install: install-user install-package install-config install-reload
 
 install-user:
 	adduser --system --group --no-create-home openvpn
@@ -9,6 +9,5 @@ install-package:
 install-config: openvpn.conf
 	install -o root -g root -m 644 $< /etc/openvpn/openvpn.conf
 
-install-restart:
+install-reload:
 	systemctl daemon-reload
-	systemctl restart openvpn.service

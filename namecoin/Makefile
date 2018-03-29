@@ -1,7 +1,7 @@
 URL = 'https://namecoin.org/files/namecoin-core-0.13.99-name-tab-beta1-notreproduced/namecoin-0.13.99-x86_64-linux-gnu.tar.gz'
 SHA256 = '294b1106001d6ea2b9d9ee6a655021ef207a24e8f1dec8efd5899728b3849129'
 
-install: install-user install-config install-service install-datadir install-bins install-restart
+install: install-user install-config install-service install-datadir install-bins install-reload
 
 install-user:
 	adduser --system --group --no-create-home namecoin
@@ -19,9 +19,8 @@ install-datadir: install-user
 install-bins: namecoind
 	install -o root -g root -m 755 $< /usr/local/bin
 
-install-restart:
+install-reload:
 	systemctl daemon-reload
-	systemctl restart namecoin.service
 
 namecoind: namecoin.tar.gz
 	tar -xzf $< -C . --strip-components=2 namecoin-0.13.99/bin/$@
