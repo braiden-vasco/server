@@ -1,4 +1,4 @@
-install: install-apt install-system install-iptables install-ssh install-tools install-vim install-vpn install-emercoin install-namecoin install-www
+install: install-apt install-system install-iptables install-sudo install-ssh install-tools install-vim install-vpn install-emercoin install-namecoin install-www
 
 install-apt:
 	make -C apt install
@@ -8,6 +8,9 @@ install-system:
 
 install-iptables:
 	make -C iptables install
+
+install-sudo:
+	make -C sudo install
 
 install-ssh:
 	make -C ssh install
