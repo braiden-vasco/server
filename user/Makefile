@@ -1,7 +1,7 @@
 install: install-user install-ssh-keys install-coin-configs
 
 install-user:
-	adduser --disabled-password --gecos '' braiden-vasco
+	id braiden-vasco || adduser --disabled-password --gecos '' braiden-vasco
 	usermod -a -G sudo  braiden-vasco
 	usermod -a -G staff braiden-vasco
 
