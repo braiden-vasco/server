@@ -1,4 +1,4 @@
-install: install-apt install-system install-iptables install-sudo install-ssh install-tools install-vim install-vpn install-emercoin install-namecoin install-www
+install: install-apt install-system install-iptables install-sudo install-ssh install-tools install-vim install-tor install-vpn install-emercoin install-namecoin install-www
 
 install-apt:
 	make -C apt install
@@ -20,6 +20,9 @@ install-tools:
 
 install-vim:
 	make -C vim install
+
+install-tor:
+	make -C tor install
 
 install-vpn:
 	make -C vpn install
