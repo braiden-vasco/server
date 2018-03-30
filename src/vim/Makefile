@@ -6,5 +6,5 @@ install-package:
 install-alternatives:
 	update-alternatives --set editor /usr/bin/vim.basic
 
-install-vimrc: vimrc.local
+install-vimrc: ../../files/vim/vimrc.local
 	install -o root -g root -m 644 $< /etc/vim/vimrc.local
