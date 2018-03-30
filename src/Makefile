@@ -4,7 +4,7 @@ install-apt:
 	make -C apt install
 
 install-system:
-	make -C system install
+	./system.rb
 
 install-iptables:
 	make -C iptables install
