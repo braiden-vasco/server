@@ -40,7 +40,7 @@ install-ncdns:
 	make -C ncdns install
 
 install-dns:
-	make -C dns install
+	./dns.rb
 
 install-www:
 	make -C www install
