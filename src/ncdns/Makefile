@@ -17,11 +17,11 @@ ncdns.tar.gz:
 	wget $(URL) -O $@
 	echo '$(SHA256) *$@' | sha256sum -c - || (rm $@ && false)
 
-install-config: ncdns.conf
+install-config: ../../files/ncdns/ncdns.conf
 	install -o root -g root -m 755 -d /etc/ncdns
 	install -o root -g root -m 644 $< /etc/ncdns/ncdns.conf
 
-install-service: ncdns.service
+install-service: ../../files/ncdns/ncdns.service
 	install -o root -g root -m 644 $< /etc/systemd/system/ncdns.service
 
 install-reload:
