@@ -6,12 +6,12 @@ install: install-user install-config install-service install-datadir install-bin
 install-user:
 	adduser --system --group --no-create-home emercoin
 
-install-config: emercoin.conf
+install-config: ../../files/emercoin/emercoin.conf
 	install -o root -g root -m 755 -d /etc/emercoin
-	install -o root -g root -m 644 $< /etc/emercoin
+	install -o root -g root -m 644 $< /etc/emercoin/emercoin.conf
 
-install-service: emercoin.service
-	install -o root -g root -m 644 $< /etc/systemd/system
+install-service: ../../files/emercoin/emercoin.service
+	install -o root -g root -m 644 $< /etc/systemd/system/emercoin.service
 
 install-datadir: install-user
 	install -o emercoin -g emercoin -m 755 -d /var/lib/emercoin
