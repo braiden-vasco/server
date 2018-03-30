@@ -6,12 +6,12 @@ install: install-user install-config install-service install-datadir install-bin
 install-user:
 	adduser --system --group --no-create-home namecoin
 
-install-config: namecoin.conf
+install-config: ../../files/namecoin/namecoin.conf
 	install -o root -g root -m 755 -d /etc/namecoin
-	install -o root -g root -m 644 $< /etc/namecoin
+	install -o root -g root -m 644 $< /etc/namecoin/namecoin.conf
 
-install-service: namecoin.service
-	install -o root -g root -m 644 $< /etc/systemd/system
+install-service: ../../files/namecoin/namecoin.service
+	install -o root -g root -m 644 $< /etc/systemd/system/namecoin.service
 
 install-datadir: install-user
 	install -o namecoin -g namecoin -m 755 -d /var/lib/namecoin
