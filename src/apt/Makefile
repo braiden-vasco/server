@@ -1,9 +1,9 @@
 install: install-sources install-noinstall install-update install-upgrade install-dist-upgrade install-purge install-autoremove install-upgrades
 
-install-sources: sources.list
+install-sources: ../../files/apt/sources.list
 	install -o root -g root -m 644 $< /etc/apt
 
-install-noinstall: 02noinstall
+install-noinstall: ../../files/apt/02noinstall
 	install -o root -g root -m 644 $< /etc/apt/apt.conf.d
 
 install-update:
@@ -21,6 +21,6 @@ install-purge:
 install-autoremove:
 	apt-get autoremove --purge --yes
 
-install-upgrades: 20auto-upgrades
+install-upgrades: ../../files/apt/20auto-upgrades
 	apt-get install --yes unattended-upgrades
 	install -o root -g root -m 644 $< /etc/apt/apt.conf.d
