@@ -7,7 +7,7 @@ install-system:
 	./system.rb
 
 install-iptables:
-	make -C iptables install
+	./iptables.rb
 
 install-sudo:
 	make -C sudo install
