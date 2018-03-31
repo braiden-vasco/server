@@ -12,5 +12,5 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
 system! 'apt-get install --yes dnsmasq'
 
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
-        File.expand_path('../files/dns/dnsmasq.conf', __dir__),
+        File.expand_path('../files/dnsmasq.conf', __dir__),
         '/etc/dnsmasq.conf'
