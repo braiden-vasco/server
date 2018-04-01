@@ -25,3 +25,5 @@ system! 'install', '-o', 'braiden-vasco', '-g', 'braiden-vasco', '-m', '755',
 
 system! 'ln -sf /etc/emercoin/emercoin.conf /home/braiden-vasco/.emercoin/emercoin.conf'
 system! 'ln -sf /etc/namecoin/namecoin.conf /home/braiden-vasco/.namecoin/namecoin.conf'
+
+system! 'apt-get install --yes bash-completion colordiff curl less'
