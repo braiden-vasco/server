@@ -13,7 +13,7 @@ install-sudo:
 	./sudo.rb
 
 install-ssh:
-	make -C ssh install
+	./ssh.rb
 
 install-user:
 	./user.rb
