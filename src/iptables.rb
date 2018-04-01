@@ -16,4 +16,4 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         '/etc/iptables/rules.v6'
 
 system! 'cat /etc/iptables/rules.v4 | iptables-restore'
-system! 'cat /etc/iptables/rules.v6 | iptables-restore'
+system! 'cat /etc/iptables/rules.v6 | ip6tables-restore'
