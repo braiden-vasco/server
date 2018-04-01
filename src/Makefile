@@ -10,7 +10,7 @@ install-iptables:
 	./iptables.rb
 
 install-sudo:
-	make -C sudo install
+	./sudo.rb
 
 install-ssh:
 	make -C ssh install
