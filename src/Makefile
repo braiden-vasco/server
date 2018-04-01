@@ -16,7 +16,7 @@ install-ssh:
 	make -C ssh install
 
 install-user:
-	make -C user install
+	./user.rb
 
 install-tools:
 	apt-get install --yes bash-completion colordiff curl less
