@@ -22,7 +22,7 @@ install-tools:
 	apt-get install --yes bash-completion colordiff curl less
 
 install-vim:
-	make -C vim install
+	./vim.rb
 
 install-tor:
 	./tor.rb
