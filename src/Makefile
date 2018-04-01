@@ -25,7 +25,7 @@ install-vim:
 	make -C vim install
 
 install-tor:
-	make -C tor install
+	./tor.rb
 
 install-vpn:
 	make -C vpn install
