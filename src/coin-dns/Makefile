@@ -14,24 +14,24 @@ install-ncdns: install-ncdns-user install-ncdns-bins install-ncdns-config instal
 install-emercoin-user:
 	adduser --system --group --no-create-home emercoin
 
-install-emercoin-config: ../../files/emercoin/emercoin.conf
+install-emercoin-config:
 	install -o root -g root -m 755 -d /etc/emercoin
-	install -o root -g root -m 644 $< /etc/emercoin/emercoin.conf
+	install -o root -g root -m 644 ../../files/emercoin/emercoin.conf /etc/emercoin/emercoin.conf
 
-install-emercoin-service: ../../files/emercoin/emercoin.service
-	install -o root -g root -m 644 $< /etc/systemd/system/emercoin.service
+install-emercoin-service:
+	install -o root -g root -m 644 ../../files/emercoin/emercoin.service /etc/systemd/system/emercoin.service
 
 install-emercoin-datadir: install-emercoin-user
 	install -o emercoin -g emercoin -m 755 -d /var/lib/emercoin
 
-install-emercoin-bins: emercoind
-	install -o root -g root -m 755 $< /usr/local/bin
+install-emercoin-bins:
+	install -o root -g root -m 755 emercoind /usr/local/bin
 
 install-emercoin-reload:
 	systemctl daemon-reload
 
-emercoind: emercoin.tar.gz
-	tar -xzf $< -C . --strip-components=2 emercoin-0.6.3/bin/$@
+emercoind:
+	tar -xzf emercoin.tar.gz -C . --strip-components=2 emercoin-0.6.3/bin/$@
 	./$@ --version | grep 'Emercoin Core Daemon version v0.6.3.1emc'
 
 emercoin.tar.gz:
@@ -41,24 +41,24 @@ emercoin.tar.gz:
 install-namecoin-user:
 	adduser --system --group --no-create-home namecoin
 
-install-namecoin-config: ../../files/namecoin/namecoin.conf
+install-namecoin-config:
 	install -o root -g root -m 755 -d /etc/namecoin
-	install -o root -g root -m 644 $< /etc/namecoin/namecoin.conf
+	install -o root -g root -m 644 ../../files/namecoin/namecoin.conf /etc/namecoin/namecoin.conf
 
-install-namecoin-service: ../../files/namecoin/namecoin.service
-	install -o root -g root -m 644 $< /etc/systemd/system/namecoin.service
+install-namecoin-service:
+	install -o root -g root -m 644 ../../files/namecoin/namecoin.service /etc/systemd/system/namecoin.service
 
 install-namecoin-datadir: install-namecoin-user
 	install -o namecoin -g namecoin -m 755 -d /var/lib/namecoin
 
-install-namecoin-bins: namecoind
-	install -o root -g root -m 755 $< /usr/local/bin
+install-namecoin-bins:
+	install -o root -g root -m 755 namecoind /usr/local/bin
 
 install-namecoin-reload:
 	systemctl daemon-reload
 
-namecoind: namecoin.tar.gz
-	tar -xzf $< -C . --strip-components=2 namecoin-0.13.99/bin/$@
+namecoind:
+	tar -xzf namecoin.tar.gz -C . --strip-components=2 namecoin-0.13.99/bin/$@
 	./$@ --version | grep 'Namecoin Core Daemon version nc0.13.99-name-tab-beta1'
 
 namecoin.tar.gz:
@@ -68,23 +68,23 @@ namecoin.tar.gz:
 install-ncdns-user:
 	adduser --system --group --no-create-home ncdns
 
-install-ncdns-bins: ncdns
-	install -o root -g root -m 755 $< /usr/local/bin/ncdns
+install-ncdns-bins:
+	install -o root -g root -m 755 ncdns /usr/local/bin/ncdns
 
-ncdns: ncdns.tar.gz
-	tar -xzf $< -C . --strip-components=2 ncdns-v0.0.5-linux_amd64/bin/ncdns
+ncdns:
+	tar -xzf ncdns.tar.gz -C . --strip-components=2 ncdns-v0.0.5-linux_amd64/bin/ncdns
 	./$@ -version | grep 'go version go1.8.3 linux/amd64 gc cgo=true' || (rm $@ && false)
 
 ncdns.tar.gz:
 	wget $(NCDNS_URL) -O $@
 	echo '$(NCDNS_SHA256) *$@' | sha256sum -c - || (rm $@ && false)
 
-install-ncdns-config: ../../files/ncdns/ncdns.conf
+install-ncdns-config:
 	install -o root -g root -m 755 -d /etc/ncdns
-	install -o root -g root -m 644 $< /etc/ncdns/ncdns.conf
+	install -o root -g root -m 644 ../../files/ncdns/ncdns.conf /etc/ncdns/ncdns.conf
 
-install-ncdns-service: ../../files/ncdns/ncdns.service
-	install -o root -g root -m 644 $< /etc/systemd/system/ncdns.service
+install-ncdns-service:
+	install -o root -g root -m 644 ../../files/ncdns/ncdns.service /etc/systemd/system/ncdns.service
 
 install-ncdns-reload:
 	systemctl daemon-reload
