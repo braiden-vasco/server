@@ -40,4 +40,4 @@ install-dns:
 	./dns.rb
 
 install-www:
-	make -C www install
+	./www.rb
