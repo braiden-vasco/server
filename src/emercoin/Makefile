@@ -1,5 +1,5 @@
-URL = 'https://downloads.sourceforge.net/project/emercoin/0.6.3.1/emercoin-0.6.3.1-linux64.tar.gz'
-SHA256 = '5045f4c20a7060e610847f9ffd01048601266640007e97d9bc245202f59f5ef5'
+EMERCOIN_URL = 'https://downloads.sourceforge.net/project/emercoin/0.6.3.1/emercoin-0.6.3.1-linux64.tar.gz'
+EMERCOIN_SHA256 = '5045f4c20a7060e610847f9ffd01048601266640007e97d9bc245202f59f5ef5'
 
 install: install-user install-config install-service install-datadir install-bins install-reload
 
@@ -27,5 +27,5 @@ emercoind: emercoin.tar.gz
 	./$@ --version | grep 'Emercoin Core Daemon version v0.6.3.1emc'
 
 emercoin.tar.gz:
-	wget $(URL) -O $@
-	echo '$(SHA256) *$@' | sha256sum -c - || rm $@
+	wget $(EMERCOIN_URL) -O $@
+	echo '$(EMERCOIN_SHA256) *$@' | sha256sum -c - || rm $@

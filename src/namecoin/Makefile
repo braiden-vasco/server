@@ -1,5 +1,5 @@
-URL = 'https://namecoin.org/files/namecoin-core-0.13.99-name-tab-beta1-notreproduced/namecoin-0.13.99-x86_64-linux-gnu.tar.gz'
-SHA256 = '294b1106001d6ea2b9d9ee6a655021ef207a24e8f1dec8efd5899728b3849129'
+NAMECOIN_URL = 'https://namecoin.org/files/namecoin-core-0.13.99-name-tab-beta1-notreproduced/namecoin-0.13.99-x86_64-linux-gnu.tar.gz'
+NAMECOIN_SHA256 = '294b1106001d6ea2b9d9ee6a655021ef207a24e8f1dec8efd5899728b3849129'
 
 install: install-user install-config install-service install-datadir install-bins install-reload
 
@@ -27,5 +27,5 @@ namecoind: namecoin.tar.gz
 	./$@ --version | grep 'Namecoin Core Daemon version nc0.13.99-name-tab-beta1'
 
 namecoin.tar.gz:
-	wget $(URL) -O $@
-	echo '$(SHA256) *$@' | sha256sum -c - || rm $@
+	wget $(NAMECOIN_URL) -O $@
+	echo '$(NAMECOIN_SHA256) *$@' | sha256sum -c - || rm $@

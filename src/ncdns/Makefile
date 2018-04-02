@@ -1,5 +1,5 @@
-URL = 'https://github.com/namecoin/ncdns/releases/download/v0.0.5/ncdns-v0.0.5-linux_amd64.tar.gz'
-SHA256 = '55f6f5bc46f1f85369a8540e6174e9b845e24b424ba6679c56c34841b1128517'
+NCDNS_URL = 'https://github.com/namecoin/ncdns/releases/download/v0.0.5/ncdns-v0.0.5-linux_amd64.tar.gz'
+NCDNS_SHA256 = '55f6f5bc46f1f85369a8540e6174e9b845e24b424ba6679c56c34841b1128517'
 
 install: install-user install-bins install-config install-service install-reload
 
@@ -14,8 +14,8 @@ ncdns: ncdns.tar.gz
 	./$@ -version | grep 'go version go1.8.3 linux/amd64 gc cgo=true' || (rm $@ && false)
 
 ncdns.tar.gz:
-	wget $(URL) -O $@
-	echo '$(SHA256) *$@' | sha256sum -c - || (rm $@ && false)
+	wget $(NCDNS_URL) -O $@
+	echo '$(NCDNS_SHA256) *$@' | sha256sum -c - || (rm $@ && false)
 
 install-config: ../../files/ncdns/ncdns.conf
 	install -o root -g root -m 755 -d /etc/ncdns
