@@ -25,7 +25,7 @@ install-tor:
 	./tor.rb
 
 install-vpn:
-	make -C vpn install
+	./vpn.rb
 
 install-emercoin:
 	make -C emercoin install
