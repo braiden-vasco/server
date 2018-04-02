@@ -1,7 +1,7 @@
 install: install-apt install-system install-iptables install-sudo install-ssh install-user install-vim install-tor install-vpn install-emercoin install-namecoin install-ncdns install-dns install-www
 
 install-apt:
-	make -C apt install
+	./apt.rb
 
 install-system:
 	./system.rb
