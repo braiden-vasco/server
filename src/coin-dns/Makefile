@@ -7,6 +7,8 @@ NAMECOIN_SHA256 = '294b1106001d6ea2b9d9ee6a655021ef207a24e8f1dec8efd5899728b3849
 NCDNS_URL = 'https://github.com/namecoin/ncdns/releases/download/v0.0.5/ncdns-v0.0.5-linux_amd64.tar.gz'
 NCDNS_SHA256 = '55f6f5bc46f1f85369a8540e6174e9b845e24b424ba6679c56c34841b1128517'
 
+install: install-emercoin install-namecoin install-ncdns
+
 install-emercoin:
 	wget $(EMERCOIN_URL) -O emercoin.tar.gz
 	echo '$(EMERCOIN_SHA256) *emercoin.tar.gz' | sha256sum -c - || rm emercoin.tar.gz
