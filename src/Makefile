@@ -28,9 +28,9 @@ install-vpn:
 	./vpn.rb
 
 install-coin-dns:
-	make -C emercoin install
-	make -C namecoin install
-	make -C ncdns install
+	make -C emercoin install-emercoin
+	make -C namecoin install-namecoin
+	make -C ncdns    install-ncdns
 
 install-dns:
 	./dns.rb
