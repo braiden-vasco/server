@@ -1,4 +1,4 @@
-install: install-apt install-system install-iptables install-sudo install-ssh install-user install-vim install-tor install-vpn install-emercoin install-namecoin install-ncdns install-dns install-www
+install: install-apt install-system install-iptables install-sudo install-ssh install-user install-vim install-tor install-vpn install-coin-dns install-dns install-www
 
 install-apt:
 	./apt.rb
@@ -27,13 +27,9 @@ install-tor:
 install-vpn:
 	./vpn.rb
 
-install-emercoin:
+install-coin-dns:
 	make -C emercoin install
-
-install-namecoin:
 	make -C namecoin install
-
-install-ncdns:
 	make -C ncdns install
 
 install-dns:
