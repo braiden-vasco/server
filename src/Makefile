@@ -1,4 +1,4 @@
-install: install-apt install-system install-iptables install-sudo install-ssh install-user install-vim install-tor install-vpn install-coin-dns install-dns install-www
+install: install-apt install-system install-iptables install-sudo install-ssh install-user install-vim install-tor install-vpn install-dns install-www install-coin-dns
 
 install-apt:
 	./apt.rb
@@ -27,11 +27,11 @@ install-tor:
 install-vpn:
 	./vpn.rb
 
-install-coin-dns:
-	make -C coin-dns install
-
 install-dns:
 	./dns.rb
 
 install-www:
 	./www.rb
+
+install-coin-dns:
+	make -C coin-dns install
