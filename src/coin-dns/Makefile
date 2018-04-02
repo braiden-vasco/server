@@ -31,12 +31,12 @@ install-emercoin-reload:
 	systemctl daemon-reload
 
 emercoind:
-	tar -xzf emercoin.tar.gz -C . --strip-components=2 emercoin-0.6.3/bin/$@
-	./$@ --version | grep 'Emercoin Core Daemon version v0.6.3.1emc'
+	tar -xzf emercoin.tar.gz -C . --strip-components=2 emercoin-0.6.3/bin/emercoind
+	./emercoind --version | grep 'Emercoin Core Daemon version v0.6.3.1emc'
 
 emercoin.tar.gz:
-	wget $(EMERCOIN_URL) -O $@
-	echo '$(EMERCOIN_SHA256) *$@' | sha256sum -c - || rm $@
+	wget $(EMERCOIN_URL) -O emercoin.tar.gz
+	echo '$(EMERCOIN_SHA256) *emercoin.tar.gz' | sha256sum -c - || rm emercoin.tar.gz
 
 install-namecoin-user:
 	adduser --system --group --no-create-home namecoin
@@ -58,12 +58,12 @@ install-namecoin-reload:
 	systemctl daemon-reload
 
 namecoind:
-	tar -xzf namecoin.tar.gz -C . --strip-components=2 namecoin-0.13.99/bin/$@
-	./$@ --version | grep 'Namecoin Core Daemon version nc0.13.99-name-tab-beta1'
+	tar -xzf namecoin.tar.gz -C . --strip-components=2 namecoin-0.13.99/bin/namecoind
+	./namecoind --version | grep 'Namecoin Core Daemon version nc0.13.99-name-tab-beta1'
 
 namecoin.tar.gz:
-	wget $(NAMECOIN_URL) -O $@
-	echo '$(NAMECOIN_SHA256) *$@' | sha256sum -c - || rm $@
+	wget $(NAMECOIN_URL) -O namecoin.tar.gz
+	echo '$(NAMECOIN_SHA256) *namecoin.tar.gz' | sha256sum -c - || rm namecoin.tar.gz
 
 install-ncdns-user:
 	adduser --system --group --no-create-home ncdns
@@ -73,11 +73,11 @@ install-ncdns-bins:
 
 ncdns:
 	tar -xzf ncdns.tar.gz -C . --strip-components=2 ncdns-v0.0.5-linux_amd64/bin/ncdns
-	./$@ -version | grep 'go version go1.8.3 linux/amd64 gc cgo=true' || (rm $@ && false)
+	./ncdns -version | grep 'go version go1.8.3 linux/amd64 gc cgo=true' || (rm ncdns && false)
 
 ncdns.tar.gz:
-	wget $(NCDNS_URL) -O $@
-	echo '$(NCDNS_SHA256) *$@' | sha256sum -c - || (rm $@ && false)
+	wget $(NCDNS_URL) -O ncdns.tar.gz
+	echo '$(NCDNS_SHA256) *ncdns.tar.gz' | sha256sum -c - || (rm ncdns.tar.gz && false)
 
 install-ncdns-config:
 	install -o root -g root -m 755 -d /etc/ncdns
