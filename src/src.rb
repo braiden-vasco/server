@@ -159,20 +159,20 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/dnsmasq.conf', __dir__),
         '/etc/dnsmasq.conf'
 
-system! 'apt-get install --yes nginx'
+system! 'install', '-o', 'root', '-g', 'root', '-m', '755',
+        '-d', '/etc/ssl'
 
 system! 'install', '-o', 'root', '-g', 'root', '-m', '755',
-        '-d', '/etc/nginx/ssl'
-
-system! 'install', '-o', 'root', '-g', 'root', '-m', '755',
-        '-d', '/etc/nginx/ssl/crt'
+        '-d', '/etc/ssl/public'
 
 system! 'install', '-o', 'root', '-g', 'root', '-m', '700',
-        '-d', '/etc/nginx/ssl/private'
+        '-d', '/etc/ssl/private'
 
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/ssl/braiden-vasco_network.crt-bundle'),
-        '/etc/nginx/ssl/crt/braiden-vasco_network.crt-bundle'
+        '/etc/ssl/public/braiden-vasco_network.crt-bundle'
+
+system! 'apt-get install --yes nginx'
 
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/www/index.html', __dir__),
