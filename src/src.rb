@@ -178,16 +178,6 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/www/index.html', __dir__),
         '/var/www/html/index.html'
 
-system! 'install', '-o', 'root', '-g', 'root', '-m', '755',
-        '-d', '/var/www/html/.well-known'
-
-system! 'install', '-o', 'root', '-g', 'root', '-m', '755',
-        '-d', '/var/www/html/.well-known/pki-validation'
-
-system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
-        File.expand_path('../files/www/.well-known/pki-validation/FAE4170A7EAC3C096A2B4280A024F03B.txt'),
-        '/var/www/html/.well-known/pki-validation/FAE4170A7EAC3C096A2B4280A024F03B.txt'
-
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/www/pgp-public-key.asc'),
         '/var/www/html/pgp-public-key.asc'
