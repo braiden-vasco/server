@@ -23,7 +23,7 @@ Configuration
 
 * **User**: `braiden-vasco`
 * **Host name**: `braiden-vasco`
-* **Domain name**: `braiden-vasco.lib`
+* **Domain name**: `braiden-vasco.network`
 * **Real IP address**: `185.221.200.30`
 * **VPN subnet**: `10.8.0.0/10`
 * **VPN netmask**: `255.192.0.0`
