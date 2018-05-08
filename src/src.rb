@@ -33,6 +33,10 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         '/etc/hosts'
 
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
+        File.expand_path('../files/aliases', __dir__),
+        '/etc/aliases'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/sysctl.conf', __dir__),
         '/etc/sysctl.d/00-sysctl.conf'
 
