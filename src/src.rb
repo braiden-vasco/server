@@ -161,6 +161,19 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
 
 system! 'apt-get install --yes nginx'
 
+system! 'install', '-o', 'root', '-g', 'root', '-m', '755',
+        '-d', '/etc/nginx/ssl'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '755',
+        '-d', '/etc/nginx/ssl/crt'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '700',
+        '-d', '/etc/nginx/ssl/private'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
+        File.expand_path('../files/ssl/braiden-vasco_network.crt-bundle'),
+        '/etc/nginx/ssl/crt/braiden-vasco_network.crt-bundle'
+
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/www/index.html', __dir__),
         '/var/www/html/index.html'
