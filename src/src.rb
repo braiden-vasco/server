@@ -164,3 +164,13 @@ system! 'apt-get install --yes nginx'
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/www/index.html', __dir__),
         '/var/www/html/index.html'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '755',
+        '-d', '/var/www/html/.well-known'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '755',
+        '-d', '/var/www/html/.well-known/pki-validation'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
+        File.expand_path('../files/www/.well-known/pki-validation/DF06727E469C8CBA051BFFC59F7ABC74.txt'),
+        '/var/www/html/.well-known/pki-validation/DF06727E469C8CBA051BFFC59F7ABC74.txt'
