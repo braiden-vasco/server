@@ -190,4 +190,4 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
 
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/www/pgp-public-key.asc'),
-        '/var/www/html/pgp-public-key.asc')
+        '/var/www/html/pgp-public-key.asc'
