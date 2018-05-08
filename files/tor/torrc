@@ -78,8 +78,8 @@ SOCKSPort 0
 #HiddenServicePort 22 127.0.0.1:22
 
 HiddenServiceDir /var/lib/tor/hidden_services/random/
-HiddenServicePort 80  127.0.0.1:80
-HiddenServicePort 443 127.0.0.1:443
+HiddenServicePort 80   127.0.0.1:80
+HiddenServicePort 1488 127.0.0.1:1488
 
 ################ This section is just for relays #####################
 #
