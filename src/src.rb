@@ -161,7 +161,7 @@ system! 'apt-get install --yes dnsmasq'
 
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/dnsmasq.conf', __dir__),
-        '/etc/dnsmasq.conf'
+        '/etc/dnsmasq.d/00-dnsmasq.conf'
 
 system! 'install', '-o', 'root', '-g', 'root', '-m', '755',
         '-d', '/etc/ssl'
