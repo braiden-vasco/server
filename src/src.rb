@@ -199,6 +199,6 @@ system! 'wget', EMERCOIN_URL, '-O', '/tmp/emercoin.tar.gz'
 system! 'wget', NAMECOIN_URL, '-O', '/tmp/namecoin.tar.gz'
 system! 'wget', NCDNS_URL,    '-O', '/tmp/ncdns.tar.gz'
 
-system! "echo '#{EMERCOIN_SHA256} */tmp/emercoin.tar.gz' | sha256sum -c - /tmp/emercoin.tar.gz || rm /tmp/emercoin.tar.gz"
-system! "echo '#{NAMECOIN_SHA256} */tmp/namecoin.tar.gz' | sha256sum -c - /tmp/namecoin.tar.gz || rm /tmp/namecoin.tar.gz"
-system! "echo '#{NCDNS_SHA256} */tmp/ncdns.tar.gz'       | sha256sum -c - /tmp/ncdns.tar.gz    || rm /tmp/ncdns.tar.gz"
+system! "echo '#{EMERCOIN_SHA256} */tmp/emercoin.tar.gz' | sha256sum -c - || rm /tmp/emercoin.tar.gz"
+system! "echo '#{NAMECOIN_SHA256} */tmp/namecoin.tar.gz' | sha256sum -c - || rm /tmp/namecoin.tar.gz"
+system! "echo '#{NCDNS_SHA256} */tmp/ncdns.tar.gz'       | sha256sum -c - || rm /tmp/ncdns.tar.gz"
