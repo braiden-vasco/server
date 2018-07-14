@@ -225,3 +225,15 @@ system! 'install -o namecoin -g namecoin -m 755 -d /var/lib/namecoin'
 system! 'install -o root -g root -m 755 /tmp/emercoind /usr/local/bin'
 system! 'install -o root -g root -m 755 /tmp/namecoind /usr/local/bin'
 system! 'install -o root -g root -m 755 /tmp/ncdns     /usr/local/bin'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
+        File.expand_path('../files/emercoin/emercoin.conf', __dir__),
+        '/etc/emercoin/emercoin.conf'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
+        File.expand_path('../files/namecoin/namecoin.conf', __dir__),
+        '/etc/namecoin/namecoin.conf'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
+        File.expand_path('../files/ncdns/ncdns.conf', __dir__),
+        '/etc/ncdns/ncdns.conf'
