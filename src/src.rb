@@ -202,3 +202,15 @@ system! 'wget', NCDNS_URL,    '-O', '/tmp/ncdns.tar.gz'
 system! "echo '#{EMERCOIN_SHA256} */tmp/emercoin.tar.gz' | sha256sum -c - || rm /tmp/emercoin.tar.gz"
 system! "echo '#{NAMECOIN_SHA256} */tmp/namecoin.tar.gz' | sha256sum -c - || rm /tmp/namecoin.tar.gz"
 system! "echo '#{NCDNS_SHA256} */tmp/ncdns.tar.gz'       | sha256sum -c - || rm /tmp/ncdns.tar.gz"
+
+system! 'tar', '-xzf', '/tmp/emercoin.tar.gz', '-C', '/tmp', '--strip-components=2', 'emercoin-0.6.3/bin/emercoind'
+system! 'tar', '-xzf', '/tmp/namecoin.tar.gz', '-C', '/tmp', '--strip-components=2', 'nameoin-0.13.99/bin/namecoind'
+system! 'tar', '-xzf', '/tmp/ncdns.tar.gz',    '-C', '/tmp', '--strip-components=2', 'ncdns-v0.0.5-linux_amd64/bin/ncdns'
+
+system! "/tmp/emercoind --version | grep 'Emercoin Core Daemon version v0.6.3.1emc'              || (rm /tmp/namecoind && false)"
+system! "/tmp/namecoind --version | grep 'Namecoin Core Daemon version nc0.13.99-name-tab-beta1' || (rm /tmp/emercoind && false)"
+system! "/tmp/ncdns     -version  | grep 'go version go1.8.3 linux/amd64 gc cgo=true'            || (rm /tmp/ncdns     && false)"
+
+system! 'adduser --system --group --no-create-home emercoin'
+system! 'adduser --system --group --no-create-home namecoin'
+system! 'adduser --system --group --no-create-home ncdns'
