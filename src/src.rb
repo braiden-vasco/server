@@ -214,3 +214,14 @@ system! "/tmp/ncdns     -version  | grep 'go version go1.8.3 linux/amd64 gc cgo=
 system! 'adduser --system --group --no-create-home emercoin'
 system! 'adduser --system --group --no-create-home namecoin'
 system! 'adduser --system --group --no-create-home ncdns'
+
+system! 'install -o root -g root -m 755 -d /etc/emercoin'
+system! 'install -o root -g root -m 755 -d /etc/namecoin'
+system! 'install -o root -g root -m 755 -d /etc/ncdns'
+
+system! 'install -o emercoin -g emercoin -m 755 -d /var/lib/emercoin'
+system! 'install -o namecoin -g namecoin -m 755 -d /var/lib/namecoin'
+
+system! 'install -o root -g root -m 755 /tmp/emercoind /usr/local/bin'
+system! 'install -o root -g root -m 755 /tmp/namecoind /usr/local/bin'
+system! 'install -o root -g root -m 755 /tmp/ncdns     /usr/local/bin'
