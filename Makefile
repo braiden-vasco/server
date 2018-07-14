@@ -1,2 +1,2 @@
 install:
-	./src/src.rb
+	./src.rb
