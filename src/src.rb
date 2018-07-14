@@ -237,3 +237,17 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/ncdns/ncdns.conf', __dir__),
         '/etc/ncdns/ncdns.conf'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
+        File.expand_path('../files/emercoin/emercoin.service', __dir__),
+        '/etc/systemd/system/emercoin.service'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
+        File.expand_path('../files/namecoin/namecoin.service', __dir__),
+        '/etc/systemd/system/namecoin.service'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
+        File.expand_path('../files/ncdns/ncdns.service', __dir__),
+        '/etc/systemd/system/ncdns.service'
+
+system! 'systemctl daemon-reload'
