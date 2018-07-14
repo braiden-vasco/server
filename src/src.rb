@@ -1,6 +1,15 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+EMERCOIN_URL = 'https://downloads.sourceforge.net/project/emercoin/0.6.3.1/emercoin-0.6.3.1-linux64.tar.gz'
+EMERCOIN_SHA256 = '5045f4c20a7060e610847f9ffd01048601266640007e97d9bc245202f59f5ef5'
+
+NAMECOIN_URL = 'https://namecoin.org/files/namecoin-core-0.13.99-name-tab-beta1-notreproduced/namecoin-0.13.99-x86_64-linux-gnu.tar.gz'
+NAMECOIN_SHA256 = '294b1106001d6ea2b9d9ee6a655021ef207a24e8f1dec8efd5899728b3849129'
+
+NCDNS_URL = 'https://github.com/namecoin/ncdns/releases/download/v0.0.5/ncdns-v0.0.5-linux_amd64.tar.gz'
+NCDNS_SHA256 = '55f6f5bc46f1f85369a8540e6174e9b845e24b424ba6679c56c34841b1128517'
+
 def system!(*args)
   raise unless system(*args)
 end
@@ -185,3 +194,11 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/www/pgp-public-key.asc'),
         '/var/www/html/pgp-public-key.asc'
+
+system! 'wget', EMERCOIN_URL, '-O', '/tmp/emercoin.tar.gz'
+system! 'wget', NAMECOIN_URL, '-O', '/tmp/namecoin.tar.gz'
+system! 'wget', NCDNS_URL,    '-O', '/tmp/ncdns.tar.gz'
+
+system! "echo '#{EMERCOIN_SHA256} */tmp/emercoin.tar.gz' | sha256sum -c - /tmp/emercoin.tar.gz || rm /tmp/emercoin.tar.gz"
+system! "echo '#{NAMECOIN_SHA256} */tmp/namecoin.tar.gz' | sha256sum -c - /tmp/namecoin.tar.gz || rm /tmp/namecoin.tar.gz"
+system! "echo '#{NCDNS_SHA256} */tmp/ncdns.tar.gz'       | sha256sum -c - /tmp/ncdns.tar.gz    || rm /tmp/ncdns.tar.gz"
