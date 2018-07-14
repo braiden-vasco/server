@@ -1,2 +1,2 @@
 install:
-	make -C src install
+	./src/src.rb
