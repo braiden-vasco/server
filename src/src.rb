@@ -85,7 +85,7 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('../files/ssh/ssh_host_rsa_key.pub'),
         '/etc/ssh/ssh_host_rsa_key.pub'
 
-system! 'id braiden-vasco || adduser --disabled-password --gecos '' braiden-vasco'
+system! "id braiden-vasco || adduser --disabled-password --gecos '' braiden-vasco"
 
 system! 'usermod -a -G sudo  braiden-vasco'
 system! 'usermod -a -G staff braiden-vasco'
