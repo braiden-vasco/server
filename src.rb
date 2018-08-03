@@ -203,7 +203,7 @@ system! "echo '#{EMERCOIN_SHA256} */tmp/emercoin.tar.gz' | sha256sum -c - || rm 
 system! "echo '#{NAMECOIN_SHA256} */tmp/namecoin.tar.gz' | sha256sum -c - || rm /tmp/namecoin.tar.gz"
 system! "echo '#{NCDNS_SHA256} */tmp/ncdns.tar.gz'       | sha256sum -c - || rm /tmp/ncdns.tar.gz"
 
-system! 'tar', '-xzf', '/tmp/emercoin.tar.gz', '-C', '/tmp', '--strip-components=2', 'emercoin-0.6.3/bin/emercoind'
+system! 'tar', '-xzf', '/tmp/emercoin.tar.gz', '-C', '/tmp', '--strip-components=2', 'emercoin-0.7.0/bin/emercoind'
 system! 'tar', '-xzf', '/tmp/namecoin.tar.gz', '-C', '/tmp', '--strip-components=2', 'namecoin-0.13.99/bin/namecoind'
 system! 'tar', '-xzf', '/tmp/ncdns.tar.gz',    '-C', '/tmp', '--strip-components=2', 'ncdns-v0.0.5-linux_amd64/bin/ncdns'
 
