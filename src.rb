@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-EMERCOIN_URL = 'https://downloads.sourceforge.net/project/emercoin/0.6.3.1/emercoin-0.6.3.1-linux64.tar.gz'
-EMERCOIN_SHA256 = '5045f4c20a7060e610847f9ffd01048601266640007e97d9bc245202f59f5ef5'
+EMERCOIN_URL = 'https://downloads.sourceforge.net/project/emercoin/0.7.0/emercoin-0.7.0-x86_64-linux-gnu.tar.gz'
+EMERCOIN_SHA256 = '28cb578dbe125ee2ddd4e170fda2806cec7e967dcc407499b18ae40e7b4a88be'
 
 NAMECOIN_URL = 'https://namecoin.org/files/namecoin-core-0.13.99-name-tab-beta1-notreproduced/namecoin-0.13.99-x86_64-linux-gnu.tar.gz'
 NAMECOIN_SHA256 = '294b1106001d6ea2b9d9ee6a655021ef207a24e8f1dec8efd5899728b3849129'
@@ -207,7 +207,7 @@ system! 'tar', '-xzf', '/tmp/emercoin.tar.gz', '-C', '/tmp', '--strip-components
 system! 'tar', '-xzf', '/tmp/namecoin.tar.gz', '-C', '/tmp', '--strip-components=2', 'namecoin-0.13.99/bin/namecoind'
 system! 'tar', '-xzf', '/tmp/ncdns.tar.gz',    '-C', '/tmp', '--strip-components=2', 'ncdns-v0.0.5-linux_amd64/bin/ncdns'
 
-system! "/tmp/emercoind --version | grep 'Emercoin Core Daemon version v0.6.3.1emc'              || (rm /tmp/emercoind && false)"
+system! "/tmp/emercoind --version | grep 'Emercoin Core Daemon version v0.7.0emc'                || (rm /tmp/emercoind && false)"
 system! "/tmp/namecoind --version | grep 'Namecoin Core Daemon version nc0.13.99-name-tab-beta1' || (rm /tmp/namecoind && false)"
 system! "/tmp/ncdns     -version  | grep 'go version go1.8.3 linux/amd64 gc cgo=true'            || (rm /tmp/ncdns     && false)"
 
