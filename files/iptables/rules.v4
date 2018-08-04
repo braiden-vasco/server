@@ -72,6 +72,22 @@ COMMIT
 -A INPUT  -i tun0 -j ACCEPT
 -A OUTPUT -o tun0 -j ACCEPT
 
+# Allow incoming Ejabberd client-to-server.
+-A INPUT  -p tcp -m state --state NEW,ESTABLISHED --dport 5222 -j ACCEPT
+-A OUTPUT -p tcp -m state --state ESTABLISHED     --sport 5222 -j ACCEPT
+
+# Allow incoming Ejabberd server-to-server.
+-A INPUT  -p tcp -m state --state NEW,ESTABLISHED --dport 5269 -j ACCEPT
+-A OUTPUT -p tcp -m state --state ESTABLISHED     --sport 5269 -j ACCEPT
+
+# Allow outgoing Ejabberd server-to-server.
+-A OUTPUT -p tcp -m state --state NEW,ESTABLISHED --dport 5269 -j ACCEPT
+-A INPUT  -p tcp -m state --state ESTABLISHED     --sport 5269 -j ACCEPT
+
+# Allow incoming Ejabberd HTTP.
+-A INPUT  -p tcp -m state --state NEW,ESTABLISHED --dport 5280 -j ACCEPT
+-A OUTPUT -p tcp -m state --state ESTABLISHED     --sport 5280 -j ACCEPT
+
 # Allow outgoing Emercoin P2P.
 -A OUTPUT -o eth0 -p tcp -m state --state NEW,ESTABLISHED --dport 6661 -j ACCEPT
 -A INPUT  -i eth0 -p tcp -m state --state ESTABLISHED     --sport 6661 -j ACCEPT
