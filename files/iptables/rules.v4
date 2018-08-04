@@ -72,9 +72,13 @@ COMMIT
 -A INPUT  -i tun0 -j ACCEPT
 -A OUTPUT -o tun0 -j ACCEPT
 
-# Allow incoming Ejabberd client-to-server.
+# Allow incoming Ejabberd client-to-server plain/STARTTLS.
 -A INPUT  -p tcp -m state --state NEW,ESTABLISHED --dport 5222 -j ACCEPT
 -A OUTPUT -p tcp -m state --state ESTABLISHED     --sport 5222 -j ACCEPT
+
+# Allow incoming Ejabberd client-to-server old SSL.
+-A INPUT  -p tcp -m state --state NEW,ESTABLISHED --dport 5223 -j ACCEPT
+-A OUTPUT -p tcp -m state --state ESTABLISHED     --sport 5223 -j ACCEPT
 
 # Allow incoming Ejabberd server-to-server.
 -A INPUT  -p tcp -m state --state NEW,ESTABLISHED --dport 5269 -j ACCEPT
