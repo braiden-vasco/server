@@ -188,6 +188,10 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
 system! 'apt-get install --yes nginx'
 
 system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
+        File.expand_path('files/nginx/default', __dir__),
+        '/etc/nginx/sites-available/default'
+
+system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('files/www/index.html', __dir__),
         '/var/www/html/index.html'
 
