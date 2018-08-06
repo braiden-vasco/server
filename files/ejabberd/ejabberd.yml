@@ -22,7 +22,6 @@ allow_contrib_modules: true
 s2s_use_starttls: required_trusted
 s2s_protocol_options:
   - "no_sslv3"
-  - "no_tlsv1"
 
 outgoing_s2s_families: ['ipv4']
 
@@ -53,7 +52,6 @@ listen:
     starttls_required: true
     protocol_options:
       - "no_sslv3"
-      - "no_tlsv1"
     max_stanza_size: 65536
     shaper: c2s_shaper
     access: c2s
