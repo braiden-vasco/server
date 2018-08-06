@@ -60,12 +60,6 @@ listen:
     ip: "0.0.0.0"
     module: ejabberd_s2s_in
 
-  - port: 5280
-    ip: "0.0.0.0"
-    module: ejabberd_http
-    web_admin: true
-    tls: false
-
 shaper:
   normal: 1000
   fast: 50000
