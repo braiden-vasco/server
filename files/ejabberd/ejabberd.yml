@@ -43,6 +43,10 @@ acl:
        - "admin@braiden-vasco.network"
 
 listen:
+  - port: 5269
+    ip: "0.0.0.0"
+    module: ejabberd_s2s_in
+
   - port: 5222
     ip: "0.0.0.0"
     module: ejabberd_c2s
@@ -55,10 +59,6 @@ listen:
     access: c2s
     zlib: true
     resend_on_timeout: if_offline
-
-  - port: 5269
-    ip: "0.0.0.0"
-    module: ejabberd_s2s_in
 
 shaper:
   normal: 1000
