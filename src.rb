@@ -199,6 +199,15 @@ system! 'install', '-o', 'root', '-g', 'root', '-m', '644',
         File.expand_path('files/www/pgp-public-key.asc'),
         '/var/www/html/pgp-public-key.asc'
 
+system! 'apt-get install --yes ejabberd'
+
+system! 'install -o root -g ejabberd -m 750 -d /etc/ejabberd'
+system! 'install -o root -g ejabberd -m 750 -d /etc/ejabberd/certfiles'
+
+system! 'install', '-o', 'ejabberd', '-g', 'ejabberd', '-m', '600',
+        File.expand_path('files/ejabberd/ejabberd.yml', __dir__),
+        '/etc/ejabberd/ejabberd.yml'
+
 system! 'wget', EMERCOIN_URL, '-O', '/tmp/emercoin.tar.gz'
 system! 'wget', NAMECOIN_URL, '-O', '/tmp/namecoin.tar.gz'
 system! 'wget', NCDNS_URL,    '-O', '/tmp/ncdns.tar.gz'
